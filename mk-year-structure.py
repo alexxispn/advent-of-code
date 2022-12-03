@@ -3,7 +3,7 @@
 import os
 import sys
 
-extensions = ['.py', '.ts']
+extensions = ['.py', '.ts', '-input.txt']
 year = sys.argv[1]
 advent_days = 25
 
