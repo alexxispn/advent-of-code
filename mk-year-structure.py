@@ -5,6 +5,7 @@ import sys
 
 extensions = ['.py', '.ts']
 year = sys.argv[1]
+advent_days = 25
 
 
 def create_folder(folder):
@@ -23,15 +24,15 @@ def get_md_content(year, day):
 
 
 def create_advent_year_structure(year):
-    for i in range(1, 26):
-        day = f'{i:02}'
+    for advent_day in range(1, advent_days + 1):
+        day = f'{advent_day:02}'
         folder = f'{year}/{day}'
         create_folder(folder)
+        with open(f'{folder}/README.md', 'w') as f:
+            f.write(get_md_content(year, day))
         for extension in extensions:
             file = f'{folder}/{day}{extension}'
             create_file(file)
-        with open(f'{folder}/README.md', 'w') as f:
-            f.write(get_md_content(year, day))
 
 
 if __name__ == '__main__':
